@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 
 """
-
 i used this to get the dataset 
 
 from ucimlrepo import fetch_ucirepo
@@ -55,7 +54,6 @@ def quality_report(dataframe: pd.DataFrame, name: str):
     report['dtypes'] = dataframe.dtypes.astype(str)
     report['missing_values'] = dataframe.isna().sum()
     report['duplicate_rows'] = dataframe.duplicated().sum()
-    num_cols = dataframe.select_dtypes(include=[np.number]).columns
     return report
 
 

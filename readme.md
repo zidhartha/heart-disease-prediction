@@ -148,11 +148,6 @@ python src/models.py
 
 ---
 
-## Disclaimer
-This project is for educational purposes only and does not provide medical advice or diagnosis.
-
----
-
 ## Author
 Dato Jincharadze  
 Computer Science / Data Science Student  

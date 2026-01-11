@@ -10,7 +10,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 import matplotlib
 from visualisation import ensure_parent_directory
-matplotlib.use("TkAgg")
+try:
+    matplotlib.use("TkAgg")
+except Exception:
+    pass
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -240,7 +243,7 @@ def run_ml_pipeline(data_path="../Data/processed/heart_disease_clean.csv"):
         print("\nTop 10 feature importances")
         print(importances.head(10))
     elif hasattr(best_model,'coef_'):
-        coefs = pd.Series(best_model.coef_,index=feature_names).sort_values(ascending=False)
+        coefs = pd.Series(best_model.coef_[0],index=feature_names).sort_values(ascending=False)
         print(coefs.head(10))
     # The if statement is for the tree based models and the else is for the logistic regression
 

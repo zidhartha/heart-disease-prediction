@@ -1,5 +1,8 @@
 import matplotlib
-matplotlib.use('TkAgg')
+try:
+    matplotlib.use("TkAgg")
+except Exception:
+    pass
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
