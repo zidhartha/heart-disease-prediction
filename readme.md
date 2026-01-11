@@ -1,4 +1,3 @@
-Data Science with Python — Final Project
 
 ## Project Overview
 This project is an end-to-end data science and machine learning pipeline for analyzing and predicting heart disease risk using the UCI Heart Disease dataset.
