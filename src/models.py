@@ -1,4 +1,5 @@
 import os
+
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
@@ -233,6 +234,15 @@ def run_ml_pipeline(data_path="../Data/processed/heart_disease_clean.csv"):
     print(f"Recall   :{best_row['recall']:.4f}")
     print(f"F1 Score : {best_row['f1_score']:.4f}")
     best_model = next(m['model'] for m in all_metrics if m['model_name'] == best_name)
+
+    if hasattr(best_model,'feature_importances_'):
+        importances = pd.Series(best_model.feature_importances_, index=feature_names).sort_values(ascending=False)
+        print("\nTop 10 feature importances")
+        print(importances.head(10))
+    elif hasattr(best_model,'coef_'):
+        coefs = pd.Series(best_model.coef_,index=feature_names).sort_values(ascending=False)
+        print(coefs.head(10))
+    # The if statement is for the tree based models and the else is for the logistic regression
 
 
 if __name__ == "__main__":
